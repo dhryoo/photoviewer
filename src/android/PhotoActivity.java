@@ -267,6 +267,20 @@ public class PhotoActivity extends Activity {
         }
         super.onDestroy();
     }
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+
+        int action = MotionEventCompat.getActionMasked(event);
+
+        switch(action) {
+            case (MotionEvent.ACTION_DOWN) :
+            //    Log.d(DEBUG_TAG,"Action was DOWN");
+                finish();
+                return true;
+            default :
+                return super.onTouchEvent(event);
+        }
+    }
 
 
     public File getLocalBitmapFileFromString(String base64) {
