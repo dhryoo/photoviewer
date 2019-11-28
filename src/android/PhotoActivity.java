@@ -39,7 +39,11 @@ import java.util.Iterator;
 
 import uk.co.senab.photoview.PhotoViewAttacher;
 
-public class PhotoActivity extends Activity {
+public class PhotoActivity extends Activity implements GestureDetector.OnGestureListener
+, GestureDetector.OnDoubleTapListener
+{
+    private GestureDetectorCompat mDetector;
+    
     private PhotoViewAttacher mAttacher;
 
     private ImageView photo;
@@ -57,6 +61,12 @@ public class PhotoActivity extends Activity {
     private JSONObject pOptions;
     private File mTempImage;
     private int shareBtnVisibility;
+
+
+    mDetector = new GestureDetectorCompat(this,this);
+            // Set the gesture detector as the double tap
+            // listener.
+    mDetector.setOnDoubleTapListener(this);
 
     public static JSONArray mArgs = null;
 
@@ -269,6 +279,7 @@ public class PhotoActivity extends Activity {
         }
         super.onDestroy();
     }
+    /*
     @Override
     public boolean onTouchEvent(MotionEvent event){
 
@@ -277,12 +288,87 @@ public class PhotoActivity extends Activity {
         switch(action) {
             case (MotionEvent.ACTION_DOWN) :
             //    Log.d(DEBUG_TAG,"Action was DOWN");
+                  System.out.println("down");
                 finish();
                 return true;
             default :
+
                 return super.onTouchEvent(event);
         }
     }
+    */
+
+
+    @Override
+        public boolean onTouchEvent(MotionEvent event){
+            if (this.mDetector.onTouchEvent(event)) {
+                return true;
+            }
+            return super.onTouchEvent(event);
+        }
+
+        @Override
+        public boolean onDown(MotionEvent event) {
+     //       Log.d(DEBUG_TAG,"onDown: " + event.toString());
+            finish();
+            return true;
+        }
+
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2,
+                float velocityX, float velocityY) {
+      //      Log.d(DEBUG_TAG, "onFling: " + event1.toString() + event2.toString());
+            finish();
+            return true;
+        }
+
+        @Override
+        public void onLongPress(MotionEvent event) {
+       //     Log.d(DEBUG_TAG, "onLongPress: " + event.toString());
+            finish();
+        }
+
+        @Override
+        public boolean onScroll(MotionEvent event1, MotionEvent event2, float distanceX,
+                float distanceY) {
+        //    Log.d(DEBUG_TAG, "onScroll: " + event1.toString() + event2.toString());
+            finish();
+            return true;
+        }
+
+        @Override
+        public void onShowPress(MotionEvent event) {
+         //   Log.d(DEBUG_TAG, "onShowPress: " + event.toString());
+            finish();
+        }
+
+        @Override
+        public boolean onSingleTapUp(MotionEvent event) {
+          //  Log.d(DEBUG_TAG, "onSingleTapUp: " + event.toString());
+            finish();
+            return true;
+        }
+
+        @Override
+        public boolean onDoubleTap(MotionEvent event) {
+           // Log.d(DEBUG_TAG, "onDoubleTap: " + event.toString());
+            finish();
+            return true;
+        }
+
+        @Override
+        public boolean onDoubleTapEvent(MotionEvent event) {
+            //Log.d(DEBUG_TAG, "onDoubleTapEvent: " + event.toString());
+            finish();
+            return true;
+        }
+
+        @Override
+        public boolean onSingleTapConfirmed(MotionEvent event) {
+            //Log.d(DEBUG_TAG, "onSingleTapConfirmed: " + event.toString());
+            finish();
+            return true;
+        }
 
 
     public File getLocalBitmapFileFromString(String base64) {
