@@ -63,11 +63,6 @@ public class PhotoActivity extends Activity implements GestureDetector.OnGesture
     private int shareBtnVisibility;
 
 
-    mDetector = new GestureDetectorCompat(this,this);
-            // Set the gesture detector as the double tap
-            // listener.
-    mDetector.setOnDoubleTapListener(this);
-
     public static JSONArray mArgs = null;
 
     @Override
@@ -95,6 +90,12 @@ public class PhotoActivity extends Activity implements GestureDetector.OnGesture
 
             //Set the share button visibility
             shareBtnVisibility = this.mShare ? View.VISIBLE : View.INVISIBLE;
+            mDetector = new GestureDetectorCompat(this,this);
+                    // Set the gesture detector as the double tap
+                    // listener.
+            mDetector.setOnDoubleTapListener(this);
+
+
 
 
         } catch (JSONException exception) {
