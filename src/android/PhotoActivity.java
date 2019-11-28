@@ -15,6 +15,7 @@ import android.os.StrictMode;
 import android.util.Base64;
 import android.view.View;
 import android.view.MotionEvent;
+import android.view.MotionEventCompat;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
