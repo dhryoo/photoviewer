@@ -92,6 +92,8 @@
 
                 NSURL *URL = [self localFileURLForImage:url];
 
+                //NSURL *URL = [NSURL URLWithString:url];
+
                 if (URL) {
                     if(isShareEnabled){
                         [self.documentURLs addObject:URL];
@@ -136,14 +138,16 @@
 
 - (NSURL *)localFileURLForImage:(NSString *)image
 {
-    NSString* webStringURL = [image stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
-    NSURL* fileURL = [NSURL URLWithString:webStringURL];
+    //NSString* webStringURL = [image stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
+
+    NSURL* fileURL = [NSURL URLWithString:image];
+
 
     if (copyToReference && ![fileURL isFileReferenceURL]) {
         NSError* error = nil;
         NSData *data;
         if (headers && [headers count] > 0) {
-            data = [self imageDataFromURLWithHeaders:webStringURL];
+            data = [self imageDataFromURLWithHeaders:image];
         } else {
             data = [NSData dataWithContentsOfURL:fileURL options:0 error:&error];
         }
