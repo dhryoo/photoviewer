@@ -15,6 +15,7 @@ import android.os.StrictMode;
 import android.util.Base64;
 import android.view.View;
 import android.view.GestureDetector;
+import android.view.GestureDetectorCompat;
 import android.view.GestureDetector.OnDoubleTapListener;
 import android.view.MotionEvent;
 import android.support.v4.view.MotionEventCompat;
