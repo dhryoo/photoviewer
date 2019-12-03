@@ -47,7 +47,7 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 //
 public class PhotoActivity extends Activity 
 {
-    private GestureDetectorCompat mDetector;
+//    private GestureDetectorCompat mDetector;
     private GestureDetector gestureDetector = null;
 
     
@@ -97,10 +97,10 @@ public class PhotoActivity extends Activity
 
             //Set the share button visibility
             shareBtnVisibility = this.mShare ? View.VISIBLE : View.INVISIBLE;
-            mDetector = new GestureDetectorCompat(this,this);
+            //mDetector = new GestureDetectorCompat(this,this);
                     // Set the gesture detector as the double tap
                     // listener.
-            mDetector.setOnDoubleTapListener(this);
+            //mDetector.setOnDoubleTapListener(this);
 
 
             gestureDetector = new GestureDetector(this, new GestureDetector.OnGestureListener() 
