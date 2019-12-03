@@ -352,7 +352,7 @@ public class PhotoActivity extends Activity
     */
 
 
-    @Override
+    //@Override
     /*
         public boolean onTouchEvent(MotionEvent event){
             if (this.mDetector.onTouchEvent(event)) {
