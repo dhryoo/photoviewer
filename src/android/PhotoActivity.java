@@ -108,28 +108,26 @@ public class PhotoActivity extends Activity implements GestureDetector.OnGesture
                     finish();
                     return true; 
                 } 
-                /*
                 @Override public void onShowPress(MotionEvent motionEvent) 
                 { 
-                    finish();
+                //    finish();
                 } 
                 @Override public boolean onSingleTapUp(MotionEvent motionEvent) 
                 { 
-                    finish();
+                //    finish();
                     return true; 
                 } 
                 @Override public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) 
                 { 
-                    finish();
+                //    finish();
                     return true; 
                 } 
 
                 @Override public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) 
                 { 
-                    finish();
+                //    finish();
                     return true; 
                 } 
-                */
                 @Override public void onLongPress(MotionEvent motionEvent) 
                 { 
                     finish();
