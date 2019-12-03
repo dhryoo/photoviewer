@@ -46,6 +46,8 @@ public class PhotoActivity extends Activity implements GestureDetector.OnGesture
 , GestureDetector.OnDoubleTapListener
 {
     private GestureDetectorCompat mDetector;
+    private GestureDetector gestureDetector = null;
+
     
     private PhotoViewAttacher mAttacher;
 
@@ -98,6 +100,38 @@ public class PhotoActivity extends Activity implements GestureDetector.OnGesture
                     // listener.
             mDetector.setOnDoubleTapListener(this);
 
+
+            gestureDetector = new GestureDetector(this, new GestureDetector.OnGestureListener() 
+            { 
+                @Override public boolean onDown(MotionEvent motionEvent) 
+                { 
+                    finish();
+                    return true; 
+                } 
+                @Override public void onShowPress(MotionEvent motionEvent) 
+                { 
+                    finish();
+                } 
+                @Override public boolean onSingleTapUp(MotionEvent motionEvent) 
+                { 
+                    finish();
+                    return true; 
+                } 
+                @Override public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) 
+                { 
+                    finish();
+                    return true; 
+                } 
+                @Override public void onLongPress(MotionEvent motionEvent) 
+                { 
+                    finish();
+                } 
+                @Override public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) 
+                { 
+                    finish();
+                    return true; 
+                } 
+            });
 
 
 
@@ -172,6 +206,18 @@ public class PhotoActivity extends Activity implements GestureDetector.OnGesture
 
         // Title TextView
         titleTxt = (TextView) findViewById(getApplication().getResources().getIdentifier("titleTxt", "id", getApplication().getPackageName()));
+
+
+        photo.setOnTouchListener(new View.OnTouchListener() 
+        { 
+            @Override public boolean onTouch(View view, MotionEvent motionEvent) 
+            { 
+                gestureDetector.onTouchEvent(motionEvent); return true; 
+            } 
+        });
+
+
+
     }
 
     /**
@@ -313,7 +359,6 @@ public class PhotoActivity extends Activity implements GestureDetector.OnGesture
 
         @Override
         public boolean onDown(MotionEvent event) {
-     //       Log.d(DEBUG_TAG,"onDown: " + event.toString());
             finish();
             return true;
         }
@@ -321,48 +366,41 @@ public class PhotoActivity extends Activity implements GestureDetector.OnGesture
         @Override
         public boolean onFling(MotionEvent event1, MotionEvent event2,
                 float velocityX, float velocityY) {
-      //      Log.d(DEBUG_TAG, "onFling: " + event1.toString() + event2.toString());
             finish();
             return true;
         }
 
         @Override
         public void onLongPress(MotionEvent event) {
-       //     Log.d(DEBUG_TAG, "onLongPress: " + event.toString());
             finish();
         }
 
         @Override
         public boolean onScroll(MotionEvent event1, MotionEvent event2, float distanceX,
                 float distanceY) {
-        //    Log.d(DEBUG_TAG, "onScroll: " + event1.toString() + event2.toString());
             finish();
             return true;
         }
 
         @Override
         public void onShowPress(MotionEvent event) {
-         //   Log.d(DEBUG_TAG, "onShowPress: " + event.toString());
             finish();
         }
 
         @Override
         public boolean onSingleTapUp(MotionEvent event) {
-          //  Log.d(DEBUG_TAG, "onSingleTapUp: " + event.toString());
             finish();
             return true;
         }
 
         @Override
         public boolean onDoubleTap(MotionEvent event) {
-           // Log.d(DEBUG_TAG, "onDoubleTap: " + event.toString());
             finish();
             return true;
         }
 
         @Override
         public boolean onDoubleTapEvent(MotionEvent event) {
-            //Log.d(DEBUG_TAG, "onDoubleTapEvent: " + event.toString());
             finish();
             return true;
         }
