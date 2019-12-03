@@ -108,6 +108,7 @@ public class PhotoActivity extends Activity implements GestureDetector.OnGesture
                     finish();
                     return true; 
                 } 
+                /*
                 @Override public void onShowPress(MotionEvent motionEvent) 
                 { 
                     finish();
@@ -117,19 +118,21 @@ public class PhotoActivity extends Activity implements GestureDetector.OnGesture
                     finish();
                     return true; 
                 } 
+                @Override public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) 
+                { 
+                    finish();
+                    return true; 
+                } 
+
                 @Override public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) 
                 { 
                     finish();
                     return true; 
                 } 
+                */
                 @Override public void onLongPress(MotionEvent motionEvent) 
                 { 
                     finish();
-                } 
-                @Override public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) 
-                { 
-                    finish();
-                    return true; 
                 } 
             });
 
@@ -350,6 +353,7 @@ public class PhotoActivity extends Activity implements GestureDetector.OnGesture
 
 
     @Override
+    /*
         public boolean onTouchEvent(MotionEvent event){
             if (this.mDetector.onTouchEvent(event)) {
                 return true;
@@ -362,7 +366,9 @@ public class PhotoActivity extends Activity implements GestureDetector.OnGesture
             finish();
             return true;
         }
+        */
 
+        /*
         @Override
         public boolean onFling(MotionEvent event1, MotionEvent event2,
                 float velocityX, float velocityY) {
@@ -411,6 +417,7 @@ public class PhotoActivity extends Activity implements GestureDetector.OnGesture
             finish();
             return true;
         }
+        */
 
 
     public File getLocalBitmapFileFromString(String base64) {
