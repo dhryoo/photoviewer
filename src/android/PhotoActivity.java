@@ -42,8 +42,10 @@ import java.util.Iterator;
 
 import uk.co.senab.photoview.PhotoViewAttacher;
 
-public class PhotoActivity extends Activity implements GestureDetector.OnGestureListener
-, GestureDetector.OnDoubleTapListener
+// public class PhotoActivity extends Activity implements GestureDetector.OnGestureListener
+// , GestureDetector.OnDoubleTapListener
+//
+public class PhotoActivity extends Activity 
 {
     private GestureDetectorCompat mDetector;
     private GestureDetector gestureDetector = null;
