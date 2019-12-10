@@ -4,7 +4,7 @@ repositories{
 
 dependencies {
    compile 'com.squareup.picasso:picasso:2.5.2'
-   compile 'com.sarriaroman.PhotoViewer:PhotoViewer:1.2.4'
+   compile 'com.commit452:PhotoView:1.2.4'
 }
 
 android {
